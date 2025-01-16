@@ -19,8 +19,8 @@
     /* font-sizes */
     --font-size-small: 14px;
     --font-size-regular: 16px;
-    --font-size-large: 28px;
     --font-size-medium: 20px;
+    --font-size-large: 28px;
     --font-size-xlarge: 32px;
 
     /* colors */
@@ -35,6 +35,7 @@
 
     /* colors for grading */
     --color-status-good:#00800070;
+    --color-status-decent:#0274ff5b;
     --color-status-fine:#ffa60053;
     --color-status-bad:#ff00004a;
     --color-status-good-border:green;
