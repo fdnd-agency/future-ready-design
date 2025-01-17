@@ -1,13 +1,18 @@
 <script>
-  import { IconLibrary, DonutChart } from '$lib';
+  import { IconLibrary, DonutChart, WarningSign } from '$lib';
   export let data = data;
 
   const filterUrlCheck = (url) => {
     const filterUrl = ["https://", "www."];
     let cleanedUrl = url;
+
     filterUrl.forEach((part) => {
       cleanedUrl = cleanedUrl.replace(part, "");
     });
+
+    if (cleanedUrl.length > 10) {
+      return cleanedUrl.substring(0, 15) + '...'
+    }
     return cleanedUrl;
   }; 
 </script>
@@ -21,11 +26,9 @@
         <h2>{title}</h2>
         <p>{filterUrlCheck(url)}</p>
       </section>
-
-      <div>
-        <IconLibrary name='good' width=30 height=30 color='var(--color-status-good-border)'/>
-        <p>toegankelijk</p>
-      </div>
+        <WarningSign grade='good'>
+          <p>toegankelijk</p>
+        </WarningSign>
     </div>
     <DonutChart percentage=80/>
   </li>
@@ -53,6 +56,11 @@ ul {
     grid-template-columns: 0.2fr 0.5fr 0.3fr;
     justify-content: space-between ;
     gap: var(--average-gap);
+
+    @media (min-width: 900px) {
+      grid-template-columns: 0.2fr 1fr 0.3fr;
+    }
+
   }
 
   ul li div {
@@ -61,14 +69,21 @@ ul {
     justify-content: space-between;
   }
 
-  ul li div div {
-    background-color: var(--color-status-good);
-    border-radius: var(--section-border-radius);
-    border: solid 2px var(--color-status-good-border);
-    display: grid;
-    grid-template-columns: 10% 90%;
-    align-items: center;
-    align-content: center;
+  ul li div section p {
+    font-size: var(--font-size-small);
+  }
+
+  ul li div section h2 {
+    line-height: 1em;
+    font-size: var(--font-size-medium);
+
+    @media (min-width: 600px) {
+      font-size: var(--font-size-large);
+    }
+
+    @media (min-width: 900px) {
+      font-size: var(--font-size-medium);
+    }
   }
 
 </style>

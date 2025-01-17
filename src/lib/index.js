@@ -8,6 +8,7 @@ export { default as IconLineChart } from "./ReusableComponents/Charts/IconLineCh
 export { default as CurrentPageTitle } from "./ReusableComponents/CurrentPageTitle.svelte";
 export { default as AccessibillityScore } from "./ReusableComponents/AccessibillityScore.svelte";
 export { default as ScanResult } from "./ReusableComponents/ScanResult.svelte";
+export { default as WarningSign } from "./ReusableComponents/WarningSign.svelte";
 
 /*HOME*/
 export { default as YearlyResultLineChart } from "./Pages/Home/YearlyResultLineChart.svelte";
@@ -17,8 +18,7 @@ export { default as TypeChart } from "./Pages/Home/TypeChart.svelte";
 export { default as MonthlySwitchButtons } from "./Pages/Home/MonthlySwitchButtons.svelte";
 
 /*DETAILS*/
-export { default as GuideLine11 } from "./Pages/Details/GuideLine1-1.svelte";
-export { default as GuideLine12 } from "./Pages/Details/GuideLine1-2.svelte";
+export { default as GuideLines } from "./Pages/Details/GuideLines.svelte";
 export { default as Filter } from "./Pages/Details/Filter.svelte";
 export { default as SiteOverview } from "./Pages/Home/SiteOverview.svelte";
 
