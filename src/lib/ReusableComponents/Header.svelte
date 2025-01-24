@@ -28,7 +28,7 @@
   }
 </script>
 
-<a class="skip-link" href="#main-content">Skip naar main content</a>
+<a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
 <header>
   <button type="button" aria-label={isActive ? "Navigatiemenu is geopend" : "Navigatiemenu is gesloten"} class:active={isActive} on:click={toggleActive}>
     <IconLibrary name = "sidebar" />
@@ -54,7 +54,7 @@
     <div>
       <h2>
         <IconLibrary name="header-arrow" />
-        <a href = '/nieuwekijk/overzicht'><span>{name}</span></a>
+        <span>{name}</span>
       </h2>
       <ul>
         {#each secondaryLinks as links}
@@ -70,21 +70,22 @@
 </header>
 
 <style>
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  z-index: 999;
-  padding: 1em;
-  background-color: black;
-  color: white;
-  opacity: 0;
-}
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: black;
+    color: white;
+    opacity: 0;
+  }
 
-.skip-link:focus {
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 1;
-}
+  .skip-link:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+
   nav {
     position: fixed;
     background-color: var(--color-background-section);
@@ -95,7 +96,7 @@
     gap: 50px;
     box-shadow: var(--box-shadow);
     transition: 0.5s;
-    z-index: 1;
+    z-index: 2;
     width: 280px;
     overflow-y: auto;
     
@@ -149,7 +150,7 @@
     position: fixed;
     top: 20px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
     left: 240px;
     transition: 0.5s;
     width: min-content;

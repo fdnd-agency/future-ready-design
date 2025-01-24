@@ -1,29 +1,25 @@
 <script>
-  import { SiteOverview} from '$lib';
+  import { SiteOverview, CurrentPageTitle } from '$lib';
   export let data = data;
 </script>
 
-<main>
-  <SiteOverview {data}/>
+<main id="main-content">
+  <CurrentPageTitle />
+  <SiteOverview {data} />
 </main>
 
 <style>
 
   main {
     margin: 0 auto;
-    padding: var(--average-padding);
-    max-width: 1100px;
+    max-width: var(--page-width);
+    padding: 30px 10px;
+    gap: var(--average-gap);
+    display: flex;
+    flex-direction: column;
 
-    @media (max-width: 1600px) {
-      display: flex;
-      flex-direction: column;
-    
-    }
-
-    @media (min-width: 700px) and (max-width: 1040px) {
-    
-        padding-left: 70px;
-      
+    @media (min-width: 700px) and (max-width: 1440px) {
+      padding-left: 70px;
     }
   }
 

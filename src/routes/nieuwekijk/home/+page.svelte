@@ -1,7 +1,6 @@
 <script>
   import { CurrentPageTitle, YearlyResultLineChart, ScanResultPage, ErrorList, TypeChart } from '$lib';
   export let data = data;
-  export let company = data.sites;
   export let resultsheet = data.scans;
 
   let index = 0;
@@ -22,8 +21,8 @@
   }
 </script>
 
-<main>
-  <CurrentPageTitle {company} {nextMonth} {previousMonth} />
+<main id="main-content">
+  <CurrentPageTitle {nextMonth} {previousMonth} />
   <ScanResultPage {result} />
   <ErrorList {result} />
   <TypeChart {result} />
@@ -38,23 +37,16 @@
     gap: 20px;  
     margin: 0 auto;
     padding: 30px 10px;
-    max-width: 1100px;
-  }
+    max-width: var(--page-width);
 
-  @media only screen and (max-width: 1600px) {
-    main {
+    @media (max-width: 1600px) {
       max-width: 900px;
-      }
-
-    main {
       display: flex;
       flex-direction: column;
-    }
-  }
+    };
 
-  @media only screen and (min-width: 700px) and (max-width: 1040px) {
-    main {
+    @media (min-width: 700px) and (max-width: 1040px) {
       padding-left: 70px;
-    }
+    };
   }
 </style>
