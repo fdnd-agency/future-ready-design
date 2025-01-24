@@ -5,25 +5,29 @@
     {
       title: 'home',
       percentage: 54,
-      url: 'nieuwekijk/home',
+      urlLabel: 'nieuwekijk.nl/home/',
+      url: 'nieuwekijk/home/details',
       grade: 'fine',
     },
     {
       title: 'over-ons',
       percentage: 48,
-      url: 'nieuwekijk/over-ons',
+      urlLabel: 'nieuwekijk.nl/over-ons/',
+      url: 'nieuwekijk/over-ons/details',
       grade: 'fine',
     },
     {
       title: 'contact',
       percentage: 100,
-      url: 'nieuwekijk/contact',
+      urlLabel: 'nieuwekijk.nl/contact/',
+      url: 'nieuwekijk/contact/details',
       grade: 'good',
     },
     {
       title: 'missie',
       percentage: 22,
-      url: 'nieuwekijk/missie',
+      urlLabel: 'nieuwekijk.nl/missie/',
+      url: 'nieuwekijk/missie/details',
       grade: 'bad',
     }
   ];
@@ -37,10 +41,10 @@
           <span>{page.title}</span>
           <span>{page.percentage}%</span>
         </h2>
-        <label>
-          <span>{page.url}</span>
+        <div>
+          <span>{page.urlLabel}</span>
           <meter value="{page.percentage}" low="50" high="99" optimum="100" max="100">{page.percentage}%</meter>
-        </label>
+        </div>
         <WarningSign grade="{page.grade}" >
         {#if page.grade === 'bad'}
           <p>Mogelijk ernstige fouten ontdekt</p>
@@ -111,7 +115,35 @@
     padding: var(--average-padding);
     box-shadow: var(--box-shadow);
     height: 100%;
-    transition: 0.3s;
+    transition: transform 1s
+      linear(
+        0,
+        0.009,
+        0.035 2.1%,
+        0.141,
+        0.281 6.7%,
+        0.723 12.9%,
+        0.938 16.7%,
+        1.017,
+        1.077,
+        1.121,
+        1.149 24.3%,
+        1.159,
+        1.163,
+        1.161,
+        1.154 29.9%,
+        1.129 32.8%,
+        1.051 39.6%,
+        1.017 43.1%,
+        0.991,
+        0.977 51%,
+        0.974 53.8%,
+        0.975 57.1%,
+        0.997 69.8%,
+        1.003 76.9%,
+        1.004 83.8%,
+        1
+      );
   }
 
   a:hover {
@@ -123,7 +155,7 @@
     justify-content: space-between;
   }
 
-  label {
+  div {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -132,7 +164,23 @@
   }
 
   meter {
+    appearance: none;
     width: 100%;
+    border-radius: 4px;
+    height: 10px;
+    background: #ccc;
+  }
+
+  meter::-webkit-meter-bar {
+    background: #ccc;
+    border-radius: 4px;
+    height: 10px;
+  }
+
+  meter::-webkit-meter-optimum-value,
+  meter::-webkit-meter-suboptimum-value,
+  meter::-webkit-meter-even-less-good-value {
+    border-radius: 4px;
   }
 
   meter::-webkit-meter-optimum-value {
@@ -140,23 +188,27 @@
   }
 
   meter::-webkit-meter-suboptimum-value {
-    background: var(--color-status-decent-border);
+    background: var(--color-status-fine-border);
   }
 
   meter::-webkit-meter-even-less-good-value {
-    background: var(--color-status-fine-border);
+    background: var(--color-status-bad-border);
   }
 
-  meter::-moz-meter-optimum-value {
+  meter::-moz-meter-bar {
+    border-radius: 4px;
+  }
+
+  meter:-moz-meter-optimum::-moz-meter-bar {
     background: var(--color-status-good-border);
   }
 
-  meter::-moz-meter-suboptimum-value {
-    background: var(--color-status-decent-border);
+  meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: var(--color-status-fine-border);
   }
 
-  meter::-moz-meter-even-less-good-value {
-    background: var(--color-status-fine-border);
+  meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: var(--color-status-bad-border);
   }
 
   a ul {

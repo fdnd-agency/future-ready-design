@@ -64,6 +64,7 @@
     display: flex;
     gap: var(--average-gap);
     align-items: center;
+    flex-wrap: wrap;
   }
 
   ul {
@@ -77,5 +78,6 @@
   li {
     display: flex;
     gap: 5px;
+    align-items: center;
   }
 </style>
